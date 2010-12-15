@@ -6,23 +6,9 @@
 # Find the sum of all the multiples of 3 or 5 below 1000.
 #
 
-import itertools
+def euler_1():
+    return sum([x for x in range(1000) if x%3 == 0 or x%5 == 0])
 
-CONST = 1000
-c = CONST +1
-
-# create list of all multiples of 3 that are less than 1000
-m3 = [x*3 for x in range(0, (c/3 + 1))]
-
-# create list of all multiples of 5 that are less than 1000
-m5 = [x*5 for x in range(0, (c/5))]
-
-# combine lists and remove duplicates
-multiples = set(list(itertools.chain(*[m3, m5])))
-# compute sum of all multiples of 3 or 5 below 1000.
-value = sum(list(multiples))
-
-print value
-
-
-
+if __name__ == "__main__":
+    value = euler_1()
+    print value
