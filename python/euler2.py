@@ -10,13 +10,14 @@
 #
 
 limit = 4000000
-memo = {0:0, 1:1}
+n1 = 1
+n2 = 2
+E = 0
+while n1+n2 < limit:
+    f = n1+n2
+    n1 = n2
+    n2 = f
+    if f%2 == 0:
+        E = E+f
 
-def fib(n):
-    if not n in memo:
-        memo[n] = fib(n-1) + fib(n-2)
-    return memo[n]
-
-
-print fib(limit)
-
+print E
