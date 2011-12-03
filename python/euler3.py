@@ -51,6 +51,7 @@ def find_factor(n, f):
             return factor
         else:
             return find_factor(factor, f)
+    # We didn't find a factor, try again.
     else:
         return find_factor(n, f)
 
