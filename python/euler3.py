@@ -18,7 +18,7 @@ def f(x, a, n):
     return (x ^ 2 + a) % n
 
 
-def rho(f, n, limit=100):
+def rho(f, n, limit=5):
     a = random.randint(1, (n - 3))
     b = random.randint(1, (n - 1))
     c = a
@@ -41,7 +41,7 @@ def find_factor(n, f):
     factor = rho(f, n)
     i = 0
     # If we didn't find a factor, keep trying for 10000 times
-    while factor is None and i <= 1000:
+    while factor is None and i <= 5:
         factor = rho(f, n)
         i += 1
 
