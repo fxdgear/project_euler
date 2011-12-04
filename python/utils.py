@@ -11,11 +11,11 @@ def is_prime(n):
     return True
 
 
-def product_of(factors):
-    if len(factors) == 0:
+def product_of(values):
+    if len(values) == 0:
         return 0
     else:
-        return reduce(lambda a, b: a * b, factors)
+        return reduce(lambda a, b: a * b, values)
 
 
 def reverse_string(string):
