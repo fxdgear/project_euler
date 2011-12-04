@@ -16,3 +16,14 @@ def product_of(factors):
         return 0
     else:
         return reduce(lambda a, b: a * b, factors)
+
+
+def reverse_string(string):
+    x = [x for x in string]
+    x.reverse()
+    return "".join(x)
+
+
+def is_palindrome(string):
+    reverse = reverse_string(string)
+    return string == reverse
