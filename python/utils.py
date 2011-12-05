@@ -1,3 +1,5 @@
+import random
+import fractions
 from math import floor, log
 
 
@@ -95,3 +97,56 @@ def gen_tri_numbers():
 
 def count_divisors(n):
     return n
+
+
+def rho(n, limit=5):
+
+    def f(x, a, n):
+        return (x ^ 2 + a) % n
+
+    a = random.randint(1, (n - 3))
+    b = random.randint(1, (n - 1))
+    c = a
+    d = b
+    g = 1
+    i = 0
+    while g == 1 and i <= limit:
+        i += 1
+        c = f(c, a, n)
+        d = f(d, a, n)
+        g = fractions.gcd(abs(c - d), n)
+
+    if g == 1:
+        return None
+    else:
+        return g
+
+
+def find_factor(n):
+    factor = rho(n)
+    i = 0
+    # If we didn't find a factor, keep trying for 10000 times
+    while factor is None and i <= 5:
+        factor = rho(n)
+        i += 1
+
+    # we found a factor, is it prime? return it, else, factor the factor.
+    if factor:
+        if is_prime(factor):
+            return factor
+        else:
+            return find_factor(factor)
+    # We didn't find a factor, try again.
+    else:
+        return find_factor(n)
+
+
+def prime_factors(value):
+    factors = []
+    n = value
+    while product_of(*factors) != value:
+        factor = find_factor(n)
+        factors.append(factor)
+        n = n / factor
+    factors.sort()
+    return factors
