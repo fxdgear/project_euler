@@ -84,3 +84,14 @@ def gen_primes():
                 D.setdefault(p + q, []).append(p)
             del D[q]
         q += 1
+
+
+def gen_tri_numbers():
+    n = 1
+    while True:
+        yield n, sum([x for x in xrange(1, n + 1)])
+        n += 1
+
+
+def count_divisors(n):
+    return n
