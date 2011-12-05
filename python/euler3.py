@@ -58,7 +58,7 @@ def find_factor(n, f):
 
 def main():
     n = VALUE
-    while product_of(FACTORS) != VALUE:
+    while product_of(*FACTORS) != VALUE:
         factor = find_factor(n, f)
         FACTORS.append(factor)
         n = n / factor
