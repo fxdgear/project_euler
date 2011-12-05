@@ -96,11 +96,11 @@ def gen_tri_numbers():
 
 
 def count_divisors(n):
-    return n
+    factors = prime_factors(n)
+    return len(factors)
 
 
 def rho(n, limit=5):
-
     def f(x, a, n):
         return (x ^ 2 + a) % n
 
@@ -123,6 +123,8 @@ def rho(n, limit=5):
 
 
 def find_factor(n):
+    if n in [1, 2, 3, 5, 7, 11]:
+        return n
     factor = rho(n)
     i = 0
     # If we didn't find a factor, keep trying for 10000 times
@@ -142,6 +144,8 @@ def find_factor(n):
 
 
 def prime_factors(value):
+    if value in [1, 2, 3, 5]:
+        return [value]
     factors = []
     n = value
     while product_of(*factors) != value:
